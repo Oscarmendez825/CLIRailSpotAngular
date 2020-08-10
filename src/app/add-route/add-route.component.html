@@ -1,0 +1,59 @@
+<div class="container">
+  <div class="row">
+    <div class="offset-3"></div>
+    <div class="col-md-6">
+      <form name="form" #f="ngForm" (ngSubmit)="f.form.valid && sendUser()" novalidate class="sign-up-form">
+        <!--SALIDA-->
+        <div class="form-group">
+          <label for="departure">Departure Station</label>
+          <input type="text"
+                 id="departure"
+                 class="form-control"
+                 name = "departure"
+                 placeholder="Departure Station" [(ngModel)]="user.name"
+                 #departure = "ngModel"
+                 [ngClass]="{'is-invalid':f.submitted && departure.invalid}"
+                 required/>
+          <div *ngIf="f.submitted && departure.invalid" class="invalid-input">
+            <div *ngIf="departure.errors?.required">Departure Station is not valid</div>
+          </div>
+        </div>
+        <!--LLEGADA-->
+        <div class="form-group">
+          <label for="arrival">Arrival Station</label>
+          <input type="text"
+                 id="arrival"
+                 class="form-control"
+                 name = "arrival"
+                 placeholder="Arrival Station" [(ngModel)]="user.psw"
+                 #arrival = "ngModel"
+                 [ngClass]="{'is-invalid':f.submitted && arrival.invalid}"
+                 required/>
+          <div *ngIf="f.submitted && arrival.invalid" class="invalid-input">
+            <div *ngIf="arrival.errors?.required">Arrival Station is not valid</div>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="weight">Weight</label>
+          <input type="text"
+                 id="weight"
+                 class="form-control"
+                 name = "weight"
+                 placeholder="Your password" [(ngModel)]="user.psw"
+                 #weight = "ngModel"
+                 [ngClass]="{'is-invalid':f.submitted && weight.invalid}"
+                 required/>
+          <div *ngIf="f.submitted && weight.invalid" class="invalid-input">
+            <div *ngIf="psw.errors?.required">Weight is not valid</div>
+          </div>
+        </div>
+        <button type="submit" class="btn btn-info pull-right">
+          <i class="fa fa-envelope-o"></i>
+          <span>Submit</span>
+        </button>
+      </form>
+    </div>
+    <div class="offset-3"></div>
+  </div>
+</div>
+
