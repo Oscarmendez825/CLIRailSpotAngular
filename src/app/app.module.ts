@@ -8,8 +8,6 @@ import { HelpComponent } from './help/help.component';
 import { AdministratorComponent } from './administrator/administrator.component';
 import {Router, RouterModule, Routes} from "@angular/router";
 import { StartPageComponent } from './start-page/start-page.component';
-import { LogInComponent } from './log-in/log-in.component';
-import { SignUpComponent } from './sign-up/sign-up.component';
 import {FormsModule} from "@angular/forms";
 import {HttpClient, HttpClientModule} from "@angular/common/http";
 import { AdministradorPageComponent } from './administrador-page/administrador-page.component';
@@ -40,14 +38,6 @@ const appRoutes : Routes = [
     component: AdministratorComponent
   },
   {
-    path:'signup',
-    component: SignUpComponent
-  },
-  {
-    path:'login',
-    component: LogInComponent
-  },
-  {
     path:"adminOptions",
     component: AdministradorPageComponent
   },
@@ -72,8 +62,6 @@ const appRoutes : Routes = [
     HelpComponent,
     AdministratorComponent,
     StartPageComponent,
-    LogInComponent,
-    SignUpComponent,
     AdministradorPageComponent,
     AddRouteComponent,
     DeleteRouteComponent,

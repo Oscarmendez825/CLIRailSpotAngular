@@ -2,20 +2,20 @@
   <div class="row">
     <div class="offset-3"></div>
     <div class="col-md-6">
-      <form name="form" #f="ngForm" (ngSubmit)="f.form.valid && sendUser()" novalidate class="sign-up-form">
+      <form name="form" #f="ngForm" (ngSubmit)="f.form.valid && sendRuta()" novalidate class="sign-up-form">
         <!--SALIDA-->
         <div class="form-group">
-          <label for="departure">Departure Station</label>
+          <label for="name">Name of the Station</label>
           <input type="text"
-                 id="departure"
+                 id="name"
                  class="form-control"
-                 name = "departure"
-                 placeholder="Departure Station" [(ngModel)]="user.name"
-                 #departure = "ngModel"
-                 [ngClass]="{'is-invalid':f.submitted && departure.invalid}"
+                 name = "name"
+                 placeholder="Name of the Station" [(ngModel)]="newRoute.name"
+                 #name = "ngModel"
+                 [ngClass]="{'is-invalid':f.submitted && name.invalid}"
                  required/>
-          <div *ngIf="f.submitted && departure.invalid" class="invalid-input">
-            <div *ngIf="departure.errors?.required">Departure Station is not valid</div>
+          <div *ngIf="f.submitted && name.invalid" class="invalid-input">
+            <div *ngIf="name.errors?.name">Departure Station is not valid</div>
           </div>
         </div>
         <!--LLEGADA-->
@@ -25,7 +25,7 @@
                  id="arrival"
                  class="form-control"
                  name = "arrival"
-                 placeholder="Arrival Station" [(ngModel)]="user.psw"
+                 placeholder="Arrival Station" [(ngModel)]="newRoute.a"
                  #arrival = "ngModel"
                  [ngClass]="{'is-invalid':f.submitted && arrival.invalid}"
                  required/>
@@ -39,12 +39,12 @@
                  id="weight"
                  class="form-control"
                  name = "weight"
-                 placeholder="Your password" [(ngModel)]="user.psw"
+                 placeholder="Weight" [(ngModel)]="newRoute.peso"
                  #weight = "ngModel"
                  [ngClass]="{'is-invalid':f.submitted && weight.invalid}"
                  required/>
           <div *ngIf="f.submitted && weight.invalid" class="invalid-input">
-            <div *ngIf="psw.errors?.required">Weight is not valid</div>
+            <div *ngIf="weight.errors?.required">Weight is not valid</div>
           </div>
         </div>
         <button type="submit" class="btn btn-info pull-right">

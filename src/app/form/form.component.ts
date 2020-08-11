@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import {User} from "../sign-up/sign-up.component";
 import {HttpClient} from "@angular/common/http";
 import {Router} from "@angular/router";
 
