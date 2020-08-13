@@ -1,6 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,Input } from '@angular/core';
 import {HttpClient} from "@angular/common/http";
 import {Router} from "@angular/router";
+import {ApiService} from "../shared/api.service";
+import {Rutas} from "../routes/model/rutas";
 
 @Component({
   selector: 'app-form',
@@ -8,7 +10,8 @@ import {Router} from "@angular/router";
   styleUrls: ['./form.component.css']
 })
 export class FormComponent implements OnInit {
-  tiquete:Ticket = {
+  rutas:Rutas[]=[];
+  public tiquete:Ticket = {
     name:'',
     apellido:'',
     email:'',
@@ -16,22 +19,36 @@ export class FormComponent implements OnInit {
     de:'',
     a:''
   };
-  constructor(private http: HttpClient,private router: Router) { }
+
+  constructor(private http: HttpClient,private router: Router,private apiService:ApiService) { }
 
   ngOnInit(): void {
+    this.getRoutes();
   }
   sendForm():void{
     let url = "http://localhost:8080/api/usuario/ticket";
     this.http.post(url,this.tiquete).subscribe(
       res =>{
-        this.router.navigate(['/form']);
+        this.router.navigate(['/confirmar']);
       },
       error => {
         alert("An error has occurred while sending data");
       }
     );
   }
+  public getRoutes(){
+    let url = "http://localhost:8080/api/usuario/getGraph";
+    this.apiService.getAllRoutes().subscribe(
+      res => {
+        this.rutas = res;
 
+      },
+      err => {
+        alert("An error has ocurred ")
+      }
+
+    );
+  }
 }
 export interface Ticket {
   name:string;

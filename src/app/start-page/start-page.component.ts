@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import {HttpClient} from "@angular/common/http";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-start-page',
@@ -7,9 +9,20 @@ import { Component, OnInit } from '@angular/core';
 })
 export class StartPageComponent implements OnInit {
 
-  constructor() { }
+  constructor(private http: HttpClient,private router: Router) { }
 
   ngOnInit(): void {
+    this.cargarGraph();
   }
+  cargarGraph():void{
+    let url = "http://localhost:8080/api/usuario/cargarGraph";
+    this.http.post(url,null).subscribe(
+      res =>{
 
+      },
+      error => {
+        alert("An error has occurred while sending data");
+      }
+    );
+  }
 }

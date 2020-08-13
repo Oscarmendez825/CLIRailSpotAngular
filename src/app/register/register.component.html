@@ -1,57 +1,20 @@
 <div class="container">
-  <!-- Note menu -->
-  <div class="row" style="margin-top:12px;">
-    <div class="col-md-8">
-      <input type="text"
+  <h1 style="padding:12px;background-color:blue">RailSpot Management</h1>
+  <p></p>
+  <p></p>
+  <p></p>
+  <h3>Active Tickets:</h3>
+  <div style=padding:12px;background-color:gray;line-height:1.4;>
+    <li *ngFor="let ticket of registros" >
 
-             class="form-control"
-             style="width: 100%;"
-             placeholder="Search notes...">
-    </div>
-    <div class="col-md-4">
-      <button type="buton"
+      <ul>Client: {{ticket.name}}</ul>
+      <ul>Arrive Station: {{ticket.a}}</ul>
+      <ul>Departure Station: {{ticket.de}}</ul>
+      <ul>Email: {{ticket.email}}</ul>
+      <ul>Quantity of tickets: {{ticket.cantidad}}</ul>
 
-              class="btn btn-info pull-right"
-              style="margin-left:12px;"><i class="fa fa-plus"></i> New notebook
-      </button>
-      <button type="button"
 
-              class="btn btn-warning pull-right"
-              style="margin-left:12px;"><i class="fa fa-plus"></i> New note
-      </button>
-    </div>
-
+    </li>
   </div>
 
-  <!-- Note content -->
-  <div class="row" style="margin-top: 28px;">
-    <!-- Notebooks Menu -->
-    <div class="col-md-3">
-      <br>
-      <div class="list-group list-group-flush">
-        <a class="list-group-item list-group-item-action">
-          <i class="fa fa-book"></i>&nbsp;All
-        </a>
-        <!-- Notebook List -->
-        <a *ngFor="let ticket of registros" class="list-group-item list-group-item-action">
-          <i class="fa fa-book"></i>&nbsp;{{ticket.name}}
-
-        </a>
-      </div>
-    </div>
-
-    <!-- Notes Panel -->
-    <div class="col-md-9">
-      <div class="row">
-        <div class="col-md-12">
-          <!-- Message if there are no notes -->
-
-        </div>
-      </div>
-      <div class="row">
-        <!-- Note list -->
-
-      </div>
-    </div>
-  </div>
 </div>

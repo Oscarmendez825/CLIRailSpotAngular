@@ -16,6 +16,7 @@ import { DeleteRouteComponent } from './delete-route/delete-route.component';
 import { ModifyRouteComponent } from './modify-route/modify-route.component';
 import { FormComponent } from './form/form.component';
 import { RegisterComponent } from './register/register.component';
+import { ConfirmarComponent } from './confirmar/confirmar.component';
 
 const appRoutes : Routes = [
   {
@@ -57,6 +58,10 @@ const appRoutes : Routes = [
   {
     path:"register",
     component: RegisterComponent
+  },
+  {
+    path:"confirmar",
+    component: ConfirmarComponent
   }
 
 ]
@@ -72,7 +77,8 @@ const appRoutes : Routes = [
     DeleteRouteComponent,
     ModifyRouteComponent,
     FormComponent,
-    RegisterComponent
+    RegisterComponent,
+    ConfirmarComponent
   ],
   imports: [
     BrowserModule,

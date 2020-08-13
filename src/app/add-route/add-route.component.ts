@@ -21,8 +21,7 @@ export class AddRouteComponent implements OnInit {
     let url = "http://localhost:8080/api/usuario/addRoute";
     this.http.post(url,this.newRoute).subscribe(
       res =>{
-        this.router.navigate(['/addRoute'])
-
+        location.reload();
 
       },
       error => {

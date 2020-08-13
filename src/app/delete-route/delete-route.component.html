@@ -1,1 +1,32 @@
-<p>delete-route works!</p>
+<div class="container">
+  <div class="row">
+    <div class="offset-3"></div>
+    <div class="col-md-6">
+      <form name="form" #f="ngForm" (ngSubmit)="f.form.valid && borrar()" novalidate class="sign-up-form">
+        <!--SALIDA-->
+        <div class="form-group">
+          <label for="name">Name of the Station to Delete</label>
+          <input type="text"
+                 id="name"
+                 class="form-control"
+                 name = "name"
+                 placeholder="Name of the Station" [(ngModel)]="borrarRuta"
+                 #name = "ngModel"
+                 [ngClass]="{'is-invalid':f.submitted && name.invalid}"
+                 required/>
+          <div *ngIf="f.submitted && name.invalid" class="invalid-input">
+            <div *ngIf="name.errors?.name">Departure Station is not valid</div>
+          </div>
+        </div>
+
+        <button type="submit" class="btn btn-info pull-right">
+          <i class="fa fa-envelope-o"></i>
+          <span>Submit</span>
+        </button>
+      </form>
+    </div>
+    <div class="offset-3"></div>
+  </div>
+</div>
+
+
