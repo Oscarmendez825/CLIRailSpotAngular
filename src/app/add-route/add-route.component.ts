@@ -8,6 +8,7 @@ import {Router} from "@angular/router";
   styleUrls: ['./add-route.component.css']
 })
 /***
+ * Class AddRoute
  */
 export class AddRouteComponent implements OnInit {
   newRoute:Ruta={
