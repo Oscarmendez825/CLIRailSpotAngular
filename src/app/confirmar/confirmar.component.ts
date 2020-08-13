@@ -8,6 +8,12 @@ import {Router} from "@angular/router";
   templateUrl: './confirmar.component.html',
   styleUrls: ['./confirmar.component.css']
 })
+/***
+ * Confirmar class
+ * @author: Oscar Méndez
+ * @author: Keyner Gómez
+ * @author: Hansel Hampton
+ */
 export class ConfirmarComponent implements OnInit {
   confirmar:Confirmar;
   constructor(private apiService:ApiService,private router: Router) { }
@@ -15,6 +21,10 @@ export class ConfirmarComponent implements OnInit {
   ngOnInit(): void {
     this.getPrecio();
   }
+
+  /***
+   * method that request the price
+   */
   public getPrecio(){
     let url = "http://localhost:8080/api/usuario/getPrecio";
     this.apiService.getTotal().subscribe(
@@ -28,9 +38,5 @@ export class ConfirmarComponent implements OnInit {
 
     );
   }
-  public continuar(){
-    alert("")
-    this.router.navigate(['']);
 
-  }
 }

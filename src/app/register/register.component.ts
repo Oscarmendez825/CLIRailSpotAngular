@@ -7,6 +7,12 @@ import {ApiService} from "../shared/api.service";
   templateUrl: './register.component.html',
   styleUrls: ['./register.component.css']
 })
+/***
+ * Register class
+ * @author: Oscar Méndez
+ * @author: Keyner Gómez
+ * @author: Hansel Hampton
+ */
 export class RegisterComponent implements OnInit {
   registros:Registro[] = [];
   constructor(private apiService:ApiService) { }
@@ -14,6 +20,10 @@ export class RegisterComponent implements OnInit {
   ngOnInit(): void {
     this.getRegister();
   }
+
+  /***
+   * method that request for the sell tickets history
+   */
   public getRegister(){
     let url = "http://localhost:8080/api/usuario/getRegister";
     this.apiService.getRegister().subscribe(
@@ -28,6 +38,10 @@ export class RegisterComponent implements OnInit {
     );
   }
 }
+
+/***
+ * ticket interface
+ */
 export interface Ticket {
   name:string;
   apellido:string;

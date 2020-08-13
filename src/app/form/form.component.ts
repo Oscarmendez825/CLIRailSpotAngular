@@ -9,6 +9,12 @@ import {Rutas} from "../routes/model/rutas";
   templateUrl: './form.component.html',
   styleUrls: ['./form.component.css']
 })
+/***
+ * Form class
+ * @author: Oscar Méndez
+ * @author: Keyner Gómez
+ * @author: Hansel Hampton
+ */
 export class FormComponent implements OnInit {
   rutas:Rutas[]=[];
   public tiquete:Ticket = {
@@ -25,6 +31,10 @@ export class FormComponent implements OnInit {
   ngOnInit(): void {
     this.getRoutes();
   }
+
+  /***
+   * method that sends the information required for buy a ticket
+   */
   sendForm():void{
     let url = "http://localhost:8080/api/usuario/ticket";
     this.http.post(url,this.tiquete).subscribe(
@@ -36,6 +46,10 @@ export class FormComponent implements OnInit {
       }
     );
   }
+
+  /***
+   * method that request the routes of the train
+   */
   public getRoutes(){
     let url = "http://localhost:8080/api/usuario/getGraph";
     this.apiService.getAllRoutes().subscribe(
@@ -50,6 +64,10 @@ export class FormComponent implements OnInit {
     );
   }
 }
+
+/***
+ * ticket interface
+ */
 export interface Ticket {
   name:string;
   apellido:string;

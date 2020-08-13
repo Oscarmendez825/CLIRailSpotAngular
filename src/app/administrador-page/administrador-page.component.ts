@@ -5,6 +5,13 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './administrador-page.component.html',
   styleUrls: ['./administrador-page.component.css']
 })
+/***
+ * AdministradorPage class
+ * @author: Oscar Méndez
+ * @author: Keyner Gómez
+ * @author: Hansel Hampton
+ *
+ */
 export class AdministradorPageComponent implements OnInit {
 
   constructor() { }

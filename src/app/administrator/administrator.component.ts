@@ -6,6 +6,12 @@ import {Router} from "@angular/router";
   templateUrl: './administrator.component.html',
   styleUrls: ['./administrator.component.css']
 })
+/***
+ * Administrator class
+ * @author: Oscar Méndez
+ * @author: Keyner Gómez
+ * @author: Hansel Hampton
+ */
 export class AdministratorComponent implements OnInit {
 
   admin:Admin={
@@ -16,6 +22,10 @@ export class AdministratorComponent implements OnInit {
 
   ngOnInit(): void {
   }
+
+  /***
+   * Compare if the data of the admin login is right
+   */
   compareData():void{
     if(this.admin.email=="admin@admin.com"){
       if (this.admin.password=="1234"){
@@ -27,6 +37,10 @@ export class AdministratorComponent implements OnInit {
   }
 
 }
+
+/***
+ * interface admin
+ */
 export interface Admin {
   email:string;
   password:string;

@@ -8,7 +8,12 @@ import {ApiService} from "../shared/api.service";
   templateUrl: './routes.component.html',
   styleUrls: ['./routes.component.css']
 })
-
+/***
+ * Routes class
+ * @author: Oscar Méndez
+ * @author: Keyner Gómez
+ * @author: Hansel Hampton
+ */
 export class RoutesComponent implements OnInit {
   rutas:Rutas[]=[];
   graph: dracula.Graph;
@@ -18,7 +23,7 @@ export class RoutesComponent implements OnInit {
   constructor(private apiService:ApiService) { }
 
   ngOnInit(): void {
-    this.getRoutes();
+    //this.getRoutes();
     const Graph = dracula.Graph;
     const Renderer = dracula.Renderer.Raphael;
     const Layout = dracula.Layout.Spring;
@@ -60,6 +65,10 @@ export class RoutesComponent implements OnInit {
     this.renderer.draw();
 
   }
+
+  /***
+   * method that request all te train routes
+   */
   public getRoutes(){
     let url = "http://localhost:8080/api/usuario/getGraph";
     this.apiService.getAllRoutes().subscribe(
@@ -73,6 +82,10 @@ export class RoutesComponent implements OnInit {
 
     );
   }
+
+  /***
+   * method that add nodes into the graph
+   */
   agregarNodo(){
     for (var i = 0; i < this.rutas.length;i++){
       var name = this.rutas[i].name;
@@ -86,6 +99,13 @@ export class RoutesComponent implements OnInit {
     }
 
   }
+
+  /***
+   * method that add the connections into the graph
+   * @param from
+   * @param to
+   * @param weight
+   */
   addConnection(from, to, weight){
     const edgeData = {
       "weight": weight,
@@ -96,6 +116,10 @@ export class RoutesComponent implements OnInit {
     this.graph.addEdge(from,to,edgeData);
   }
 }
+
+/***
+ * Routes interface
+ */
 export interface Routes {
   name:string;
   a:string;

@@ -7,6 +7,8 @@ import {Router} from "@angular/router";
   templateUrl: './add-route.component.html',
   styleUrls: ['./add-route.component.css']
 })
+/***
+ */
 export class AddRouteComponent implements OnInit {
   newRoute:Ruta={
   name:'',
@@ -17,6 +19,14 @@ export class AddRouteComponent implements OnInit {
 
   ngOnInit(): void {
   }
+
+  /***
+   * Method send Ruta
+   * Enviar ruta
+   * @author: Oscar Méndez
+   * @author: Keyner Gómez
+   * @author: Hansel Hampton
+   */
   sendRuta():void{
     let url = "http://localhost:8080/api/usuario/addRoute";
     this.http.post(url,this.newRoute).subscribe(
@@ -30,6 +40,10 @@ export class AddRouteComponent implements OnInit {
     );
   }
 }
+
+/***
+ * Interface Ruta
+ */
 export interface Ruta{
   name:string;
   a:string;

@@ -9,6 +9,12 @@ import {Confirmar} from "../confirmar/model/confirmar";
 @Injectable({
   providedIn: 'root'
 })
+/***
+ * ApiService class
+ * @author: Oscar Méndez
+ * @author: Keyner Gómez
+ * @author: Hansel Hampton
+ */
 export class ApiService {
   private baseUrl = "http://localhost:8080/api/usuario";
   private getAllRegister = `${this.baseUrl}\\getRegister`;
@@ -18,17 +24,25 @@ export class ApiService {
 
   }
 
+  /***
+   * get the register of the sell tickets
+   */
   getRegister():Observable<Registro[]>{
     return this.http.get<Registro[]>(this.getAllRegister);
 
   }
-  postRegister(register:Ticket):Observable<any>{
-    return null;
-  }
+
+  /***
+   * get all the train routes
+   */
   getAllRoutes():Observable<Rutas[]>{
     return this.http.get<Rutas[]>(this.getRoutes);
 
   }
+
+  /***
+   * get the price
+   */
   getTotal():Observable<Confirmar>{
     return this.http.get<Confirmar>(this.getPrecioTotal);
 

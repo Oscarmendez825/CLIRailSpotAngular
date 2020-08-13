@@ -90,4 +90,10 @@ const appRoutes : Routes = [
   providers: [],
   bootstrap: [AppComponent]
 })
+/***
+ * AppModule class
+ * @author: Oscar Méndez
+ * @author: Keyner Gómez
+ * @author: Hansel Hampton
+ */
 export class AppModule { }
